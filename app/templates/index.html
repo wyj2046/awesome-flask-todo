@@ -1,9 +1,14 @@
 <form method="post" class="input-group" action="/add">
-  <input class="form-control" id="content" type="text" name="content" value="" />
+  {{ form.hidden_tag() }}
+  {{ form.content(class="form-control" )}}
+  <!-- <input class="form-control" id="content" type="text" name="content" value="" /> -->
   <span class="input-group-btn">
     <button class="btn btn-primary" type="submit">Add</button>
   </span>
 </form>
+{% for error in form.errors.content %}
+<div class="flash alert-danger"><span>{{ error }}</span></div>
+{% endfor %}
 
 <table class="table">
   <thead>
