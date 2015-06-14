@@ -6,7 +6,7 @@ from app.models import Todo, TodoForm
 @app.route("/")
 def index():
     form = TodoForm(request.form)
-    todos = Todo.objects.all()
+    todos = Todo.objects.order_by("-time")
     return render_template("index.html", todos=todos, form=form)
 
 
